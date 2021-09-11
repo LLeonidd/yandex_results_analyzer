@@ -7,7 +7,7 @@ from random import randint
 from fake_useragent import UserAgent
 
 
-def init_browser(_browser = 'Chrome'):
+def init_browser(_browser='Chrome'):
     user_agent = UserAgent()
     if _browser == 'FireFox':
         #for Mozilla
@@ -85,8 +85,8 @@ def get_search_results(key_request, ads=False):
     key_request = quote(key_request)
     #driver.get(f"https://yandex.ru/search/?text={key_request}")
     driver.get(f"https://www.whatsmyua.info/")
-    return
     time.sleep(randint(5, 15))
+    return
     parents = driver.find_elements_by_css_selector('.serp-item')
     search_results = {
         'ads': [],
@@ -115,17 +115,7 @@ def get_search_results(key_request, ads=False):
     return {'search_results': search_results, 'driver': driver}
 
 
-
-
 if __name__ == '__main__':
-    root_url = 'https://yandex.ru'
-    profile = webdriver.FirefoxProfile()
-    profile.set_preference("geo.prompt.testing", True)
-    profile.set_preference("geo.prompt.testing.allow", True)
-    profile.set_preference('geo.wifi.uri',
-                           'data:application/json,{"location": {"lat": 45.0200, "lng": 38.5900}, "accuracy": 27000.0}')
-    driver = webdriver.Firefox(firefox_profile=profile)
     print(
         get_search_results(key_request='Рулонные жалюзи в Краснодаре', ads=True)
        )
-    driver.close()
