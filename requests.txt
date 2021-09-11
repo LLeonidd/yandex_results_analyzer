@@ -17,3 +17,23 @@ requests==2.25.1
 selenium==3.141.0
 six @ file:///tmp/build/80754af9/six_1623709665295/work
 urllib3 @ file:///tmp/build/80754af9/urllib3_1625084269274/work
+brotlipy==0.7.0
+certifi==2021.5.30
+cffi @ file:///tmp/build/80754af9/cffi_1625807838443/work
+chardet==4.0.0
+cryptography @ file:///tmp/build/80754af9/cryptography_1616769286105/work
+fake-useragent==0.1.11
+idna @ file:///tmp/build/80754af9/idna_1622654382723/work
+imageio==2.9.0
+numpy==1.20.2
+pandas==1.2.4
+Pillow==8.2.0
+pycparser @ file:///tmp/build/80754af9/pycparser_1594388511720/work
+pyOpenSSL @ file:///tmp/build/80754af9/pyopenssl_1608057966937/work
+PySocks @ file:///tmp/build/80754af9/pysocks_1605305779399/work
+python-dateutil==2.8.1
+pytz==2021.1
+requests==2.25.1
+selenium==3.141.0
+six @ file:///tmp/build/80754af9/six_1623709665295/work
+urllib3 @ file:///tmp/build/80754af9/urllib3_1625084269274/work
