@@ -7,26 +7,25 @@ from random import randint
 from fake_useragent import UserAgent
 
 
-def init_browser():
+def init_browser(_browser = 'Chrome'):
     user_agent = UserAgent()
-    #for Mozilla
-    profile = webdriver.FirefoxProfile()
-    profile.set_preference("geo.prompt.testing", True)
-    profile.set_preference("geo.prompt.testing.allow", True)
-    profile.set_preference('geo.wifi.uri',
-                           'data:application/json,{"location": {"lat": 45.0200, "lng": 38.5900}, "accuracy": 27000.0}')
-    options = webdriver.FirefoxOptions()
-    options.set_preference('general.useragent.override',f"user-agent={user_agent.random}")
-    firefox_capabilities = DesiredCapabilities.FIREFOX.copy()
-    firefox_capabilities['prefs'] = ["browser.link.open_newwindow", 3]
-    firefox_capabilities['args'] = ['--headless']
-    browser = webdriver.Firefox(capabilities=firefox_capabilities, options=options)
-
-
-    #browser = webdriver.Firefox(firefox_profile=profile)
-    #browser = webdriver.Chrome()
-
-
+    if _browser == 'FireFox':
+        #for Mozilla
+        profile = webdriver.FirefoxProfile()
+        profile.set_preference("geo.prompt.testing", True)
+        profile.set_preference("geo.prompt.testing.allow", True)
+        profile.set_preference('geo.wifi.uri',
+                               'data:application/json,{"location": {"lat": 45.0200, "lng": 38.5900}, "accuracy": 27000.0}')
+        options = webdriver.FirefoxOptions()
+        options.set_preference('general.useragent.override',f"user-agent={user_agent.random}")
+        firefox_capabilities = DesiredCapabilities.FIREFOX.copy()
+        firefox_capabilities['prefs'] = ["browser.link.open_newwindow", 3]
+        firefox_capabilities['args'] = ['--headless']
+        browser = webdriver.Firefox(capabilities=firefox_capabilities, options=options)
+    else:
+        options = webdriver.ChromeOptions()
+        options.add_argument(f'user-agent={user_agent.random}')
+        browser = webdriver.Chrome(options=options)
 
     return browser
 
