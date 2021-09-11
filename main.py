@@ -83,10 +83,8 @@ def get_search_results(key_request, ads=False):
     """
     driver = init_browser()
     key_request = quote(key_request)
-    #driver.get(f"https://yandex.ru/search/?text={key_request}")
-    driver.get(f"https://www.whatsmyua.info/")
+    driver.get(f"https://yandex.ru/search/?text={key_request}")
     time.sleep(randint(5, 15))
-    return
     parents = driver.find_elements_by_css_selector('.serp-item')
     search_results = {
         'ads': [],
